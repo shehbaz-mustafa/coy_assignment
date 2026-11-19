@@ -1,26 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-coy-bg: #FFFFFF;
+  --color-coy-surface: #F5F2FB;
+  --color-coy-lavender: #E6E0FF;
+  --color-coy-ink: #1A1530;
+  --color-coy-pink: #FF3D7F;
+  --color-coy-pink-hover: #F0286D;
+  --color-coy-pink-pressed: #D91E5E;
+  --color-coy-yellow: #FFE15C;
+  --color-coy-peach: #FFDCCB;
+  --color-coy-light-pink: #FFDDEA;
+  --color-coy-muted: #6B6680;
+
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-family-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-sans);
+  color: var(--color-coy-ink);
+  background-color: var(--color-coy-lavender);
+  overscroll-behavior: none;
+}
+
+/* Tabular nums for ages/counts */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Safe area for bottom tab bar */
+.safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 8px);
+}
+
+/* Card shadow */
+.shadow-coy {
+  box-shadow: 3px 3px 0 var(--color-coy-ink);
+}
+
+.shadow-coy-sm {
+  box-shadow: 2px 2px 0 var(--color-coy-ink);
+}
+
+/* No scrollbar on body */
+html, body {
+  overflow: hidden;
+  height: 100%;
+  height: 100dvh;
+}
+
+/* Touch action for swipe cards */
+.swipe-card {
+  touch-action: pan-y;
 }
